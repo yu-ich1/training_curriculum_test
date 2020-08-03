@@ -40,9 +40,10 @@ class CalendarsController < ApplicationController
     7.times do |x|
       plans = []
       plan = @plans.map do |plan|
+    
         plans.push(plan.plan) if plan.date == @todays_date + x
       end
-      days = {month: (@todays_date + x).month,date: (@todays_date+x).day, plans: plans, cwday:(@todays_date.wday)}
+      days = {month: (@todays_date + x).month,date: (@todays_date+x).day, plans: plans, wdays:wdays[x]}
 
       @week_days.push(days)
     end
